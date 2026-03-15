@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+pydantic
+zope.event
+huggingface_hub

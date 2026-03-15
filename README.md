@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ISSR Humanlike AI Systems and Trust Attribution System 
+A simple application built for human–AI trust, calibration, and adoption studies.
 
-## Getting Started
+## Project Structure
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+project-root/
+├── backend/          # FastAPI backend
+│   ├── main.py       # FastAPI server
+│   ├── data.json     # JSON data storage
+│   ├── data.csv      # CSV data storage
+│   └── requirements.txt # Python dependencies
+├── frontend/         # Next.js frontend
+│   ├── src/          # Source code for the frontend
+│   ├── public/       # Static assets (optional)
+│   ├── package.json  # Frontend dependencies
+│   └── tsconfig.json # TypeScript configuration
+└── README.md         # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Prerequisites
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Node.js** (v16 or later)
+- **Python** (v3.9 or later)
+- **npm** (comes with Node.js)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup Instructions
 
-## Learn More
+### 1. Clone the repository
+```bash
+git clone "https://github.com/Pree46/issr-trust-attribution-system"
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The frontend will be available at `http://localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 3. Backend Setup
+```bash
+cd backend
+pip install -r requirements.txt
+python -m uvicorn main:app --reload
+```
 
-## Deploy on Vercel
+The backend will be available at `http://localhost:8000`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Start the backend server.
+2. Start the frontend server.
+3. Open your browser and navigate to `http://localhost:3000`.
+4. Interact with the application to participate in the study.
+
+
+
