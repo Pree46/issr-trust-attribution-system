@@ -1,8 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f0f2f5;
+  --foreground: #1a1a2e;
+  --accent-blue: #4f6ef7;
+  --accent-blue-hover: #3b5de7;
+  --accent-purple: #7c5cbf;
+  --accent-purple-hover: #6a4aad;
+  --accent-green: #34b87a;
+  --accent-green-hover: #2da36c;
+  --accent-red: #e05c5c;
+  --accent-red-hover: #cc4a4a;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  --card-border: #e4e7ec;
 }
 
 @theme inline {
@@ -12,34 +23,113 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: linear-gradient(135deg, #e8ecf3 0%, #f5f0fa 50%, #e8ecf3 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* ─── Animations ─── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
-/* Study specific styles */
+.animate-fade-in {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 1.8s ease-in-out infinite;
+}
+
+/* ─── Progress bar ─── */
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background: #e4e7ec;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+/* ─── Components ─── */
 @layer components {
   .card {
-    @apply border border-gray-300 rounded-lg p-5 mb-5;
+    @apply rounded-2xl p-6 mb-5;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
   }
 
   .btn-accept {
-    @apply flex-1 px-4 py-3 text-base font-medium bg-green-500 text-white rounded transition hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply flex-1 px-5 py-3 text-base font-semibold text-white rounded-xl
+           transition-all duration-200 ease-out
+           disabled:opacity-50 disabled:cursor-not-allowed
+           cursor-pointer;
+    background: linear-gradient(135deg, var(--accent-green) 0%, #2ec4a0 100%);
+    box-shadow: 0 2px 8px rgba(52, 184, 122, 0.25);
+  }
+  .btn-accept:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(52, 184, 122, 0.35);
+  }
+  .btn-accept:active:not(:disabled) {
+    transform: translateY(0);
   }
 
   .btn-override {
-    @apply flex-1 px-4 py-3 text-base font-medium bg-red-500 text-white rounded transition hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply flex-1 px-5 py-3 text-base font-semibold text-white rounded-xl
+           transition-all duration-200 ease-out
+           disabled:opacity-50 disabled:cursor-not-allowed
+           cursor-pointer;
+    background: linear-gradient(135deg, var(--accent-red) 0%, #d94f7a 100%);
+    box-shadow: 0 2px 8px rgba(224, 92, 92, 0.25);
+  }
+  .btn-override:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(224, 92, 92, 0.35);
+  }
+  .btn-override:active:not(:disabled) {
+    transform: translateY(0);
   }
 
   .btn-primary {
-    @apply px-5 py-2 text-base font-medium bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply px-6 py-3 text-base font-semibold text-white rounded-xl
+           transition-all duration-200 ease-out
+           disabled:opacity-50 disabled:cursor-not-allowed
+           cursor-pointer;
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+    box-shadow: 0 2px 10px rgba(79, 110, 247, 0.3);
+  }
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 18px rgba(79, 110, 247, 0.4);
+  }
+  .btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .stat-card {
+    @apply rounded-xl p-4;
+    background: #f8f9fc;
+    border: 1px solid #e8ebf0;
   }
 }

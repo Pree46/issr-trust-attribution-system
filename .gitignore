@@ -67,3 +67,5 @@ Desktop.ini
 # Data files
 /backend/data.json
 /backend/data.csv
+/backend/trust_scale.json
+

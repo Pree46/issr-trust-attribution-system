@@ -90,6 +90,13 @@ class EventLog(BaseModel):
 class SessionStart(BaseModel):
     participant_id: Optional[str] = None  
 
+class TrustScale(BaseModel):
+    participant_id: str
+    session_id: str
+    condition: str
+    trust_q1: int
+    trust_q2: int
+    trust_q3: int
 
 def load_data()-> list:
     if os.path.exists("data.json"):
@@ -109,11 +116,11 @@ def save_data(data: dict):
         json.dump(events, f, indent=4)
  
     file_exists = os.path.exists("data.csv")
-    file_empty  = not file_exists or os.path.getsize("data.csv") == 0   # ← fix
- 
+    file_empty  = not file_exists or os.path.getsize("data.csv") == 0
+
     with open("data.csv", "a", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
-        if file_empty:                                                    # ← fix
+        if file_empty:
             writer.writeheader()
         writer.writerow({k: data.get(k, "") for k in CSV_FIELDS})
 
@@ -169,13 +176,14 @@ def export_json():
 
 
 @app.get("/export/csv")
-def export_csv_info():
-    count = len(load_data())
-    return {
-        "csv_path": os.path.abspath("data.csv"),
-        "total_events": count,
-        "fields": CSV_FIELDS,
-    }
+def export_csv():
+    if not os.path.exists("data.csv") or os.path.getsize("data.csv") == 0:
+        raise HTTPException(status_code=404, detail="No data logged yet.")
+    return FileResponse(
+        path="data.csv",
+        media_type="text/csv",
+        filename="trust_study_export.csv",
+    )
 
 
 @app.get("/stats")
@@ -202,3 +210,21 @@ def get_stats():
         }
     return stats
 
+@app.post("/session/end")
+def end_session(body: TrustScale):
+    record = body.dict()
+    record["timestamp"] = datetime.now(timezone.utc).isoformat() + "Z"
+    record["type"] = "trust_scale"
+    path = "trust_scale.json"
+    existing = []
+    if os.path.exists(path):
+        with open(path) as f:
+            try:
+                existing = json.load(f)
+            except json.JSONDecodeError:
+                existing = []
+    existing.append(record)
+    with open(path, "w") as f:
+        json.dump(existing, f, indent=4)
+
+    return {"status": "trust scale logged", "participant_id": body.participant_id}
