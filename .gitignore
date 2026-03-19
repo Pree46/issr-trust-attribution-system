@@ -63,3 +63,7 @@ Desktop.ini
 
 # Logs
 *.log
+
+# Data files
+/backend/data.json
+/backend/data.csv

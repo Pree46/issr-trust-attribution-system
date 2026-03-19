@@ -102,19 +102,20 @@ def load_data()-> list:
     return []
 
 
-def save_data(data: list):
+def save_data(data: dict):
     events = load_data()
     events.append(data)
     with open("data.json", "w") as f:
         json.dump(events, f, indent=4)
-
-    #csv
+ 
+    file_exists = os.path.exists("data.csv")
+    file_empty  = not file_exists or os.path.getsize("data.csv") == 0   # ← fix
+ 
     with open("data.csv", "a", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
-        if not os.path.exists("data.csv"):
+        if file_empty:                                                    # ← fix
             writer.writeheader()
         writer.writerow({k: data.get(k, "") for k in CSV_FIELDS})
-
 
 
 @app.get("/")
