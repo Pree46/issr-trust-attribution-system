@@ -1,6 +1,3 @@
-"""
-Pydantic request models for the API.
-"""
 
 from pydantic import BaseModel
 from typing import Optional
@@ -18,6 +15,8 @@ class EventLog(BaseModel):
     decision: str
     latency_ms: int
     confidence_rating: Optional[int] = None
+    task_domain: Optional[str] = None
+    task_stakes: Optional[str] = None
     block_position: Optional[int] = None
 
 

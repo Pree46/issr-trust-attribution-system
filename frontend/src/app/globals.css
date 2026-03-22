@@ -7,12 +7,12 @@
   --card-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
   --card-border: #e4e7ec;
 
-  /* Condition A — Neutral / Grey */
-  --cond-a-primary: #6b7280;
-  --cond-a-bg: #f9fafb;
-  --cond-a-border: #d1d5db;
-  --cond-a-accent: #4b5563;
-  --cond-a-light: #f3f4f6;
+  /* Condition A — System 7 (dusty yellow) */
+  --cond-a-primary: #b59b3b;
+  --cond-a-bg: #fff9e6;
+  --cond-a-border: #e6d9a8;
+  --cond-a-accent: #8f7a2b;
+  --cond-a-light: #fff6d0;
 
   /* Condition B — Warm / Blue */
   --cond-b-primary: #2563eb;
@@ -91,12 +91,12 @@ body {
            transition-all duration-200 cursor-pointer
            disabled:opacity-50 disabled:cursor-not-allowed;
     background: #ffffff;
-    color: #374151;
-    border: 1px solid #d1d5db;
+    color: var(--cond-a-accent);
+    border: 1px solid var(--cond-a-border);
   }
   .btn-accept-neutral:hover:not(:disabled) {
-    background: #f3f4f6;
-    border-color: #9ca3af;
+    background: var(--cond-a-light);
+    border-color: var(--cond-a-accent);
   }
 
   .btn-override-neutral {
@@ -104,12 +104,12 @@ body {
            transition-all duration-200 cursor-pointer
            disabled:opacity-50 disabled:cursor-not-allowed;
     background: #ffffff;
-    color: #6b7280;
-    border: 1px solid #e5e7eb;
+    color: var(--cond-a-primary);
+    border: 1px solid var(--cond-a-border);
   }
   .btn-override-neutral:hover:not(:disabled) {
-    background: #f9fafb;
-    border-color: #d1d5db;
+    background: var(--cond-a-bg);
+    border-color: var(--cond-a-border);
   }
 
   /* ── Condition B: warm / conversational buttons ── */

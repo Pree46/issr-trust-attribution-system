@@ -20,6 +20,9 @@ export async function logEvent(payload: {
   decision: 'accept' | 'override';
   latency_ms: number;
   confidence_rating: number | null;
+  task_domain?: string;
+  task_stakes?: string;
+  block_position?: number;
 }): Promise<void> {
   const res = await fetch(`${BACKEND_URL}/event/log`, {
     method: 'POST',

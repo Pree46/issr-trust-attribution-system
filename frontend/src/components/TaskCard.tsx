@@ -12,6 +12,8 @@ interface TaskCardProps {
   sessionId: string;
   taskIndex: number;
   totalTasks: number;
+  task_domain: string;
+  task_stakes: string;
   onComplete: (decision: 'accept' | 'override', latency_ms: number) => void;
 }
 
@@ -64,6 +66,8 @@ export default function TaskCard({
         decision,
         latency_ms,
         confidence_rating: confidence,
+        task_domain: task.domain,
+        task_stakes: task.stakes,
         block_position: task.block_position,
       });
       onComplete(decision, latency_ms);
