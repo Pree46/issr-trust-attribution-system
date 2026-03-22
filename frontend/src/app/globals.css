@@ -3,17 +3,29 @@
 :root {
   --background: #f0f2f5;
   --foreground: #1a1a2e;
-  --accent-blue: #4f6ef7;
-  --accent-blue-hover: #3b5de7;
-  --accent-purple: #7c5cbf;
-  --accent-purple-hover: #6a4aad;
-  --accent-green: #34b87a;
-  --accent-green-hover: #2da36c;
-  --accent-red: #e05c5c;
-  --accent-red-hover: #cc4a4a;
   --card-bg: #ffffff;
   --card-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
   --card-border: #e4e7ec;
+
+  /* Condition A — Neutral / Grey */
+  --cond-a-primary: #6b7280;
+  --cond-a-bg: #f9fafb;
+  --cond-a-border: #d1d5db;
+  --cond-a-accent: #4b5563;
+  --cond-a-light: #f3f4f6;
+
+  /* Condition B — Warm / Blue */
+  --cond-b-primary: #2563eb;
+  --cond-b-bg: #eff6ff;
+  --cond-b-border: #bfdbfe;
+  --cond-b-accent: #1d4ed8;
+  --cond-b-light: #dbeafe;
+
+  /* Shared accents */
+  --accent-green: #34b87a;
+  --accent-red: #e05c5c;
+  --accent-blue: #4f6ef7;
+  --accent-purple: #7c5cbf;
 }
 
 @theme inline {
@@ -30,16 +42,10 @@ body {
   min-height: 100vh;
 }
 
-/* ─── Animations ─── */
+/* ── Animations ── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse-soft {
@@ -55,7 +61,7 @@ body {
   animation: pulse-soft 1.8s ease-in-out infinite;
 }
 
-/* ─── Progress bar ─── */
+/* ── Progress bar ── */
 .progress-track {
   width: 100%;
   height: 6px;
@@ -70,7 +76,7 @@ body {
   transition: width 0.5s ease;
 }
 
-/* ─── Components ─── */
+/* ── Components ── */
 @layer components {
   .card {
     @apply rounded-2xl p-6 mb-5;
@@ -79,52 +85,71 @@ body {
     border: 1px solid var(--card-border);
   }
 
-  .btn-accept {
-    @apply flex-1 px-5 py-3 text-base font-semibold text-white rounded-xl
-           transition-all duration-200 ease-out
-           disabled:opacity-50 disabled:cursor-not-allowed
-           cursor-pointer;
-    background: linear-gradient(135deg, var(--accent-green) 0%, #2ec4a0 100%);
-    box-shadow: 0 2px 8px rgba(52, 184, 122, 0.25);
+  /* ── Condition A: neutral / clinical buttons ── */
+  .btn-accept-neutral {
+    @apply flex-1 px-5 py-3 text-sm font-medium rounded-lg
+           transition-all duration-200 cursor-pointer
+           disabled:opacity-50 disabled:cursor-not-allowed;
+    background: #ffffff;
+    color: #374151;
+    border: 1px solid #d1d5db;
   }
-  .btn-accept:hover:not(:disabled) {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(52, 184, 122, 0.35);
-  }
-  .btn-accept:active:not(:disabled) {
-    transform: translateY(0);
+  .btn-accept-neutral:hover:not(:disabled) {
+    background: #f3f4f6;
+    border-color: #9ca3af;
   }
 
-  .btn-override {
-    @apply flex-1 px-5 py-3 text-base font-semibold text-white rounded-xl
-           transition-all duration-200 ease-out
-           disabled:opacity-50 disabled:cursor-not-allowed
-           cursor-pointer;
-    background: linear-gradient(135deg, var(--accent-red) 0%, #d94f7a 100%);
-    box-shadow: 0 2px 8px rgba(224, 92, 92, 0.25);
+  .btn-override-neutral {
+    @apply flex-1 px-5 py-3 text-sm font-medium rounded-lg
+           transition-all duration-200 cursor-pointer
+           disabled:opacity-50 disabled:cursor-not-allowed;
+    background: #ffffff;
+    color: #6b7280;
+    border: 1px solid #e5e7eb;
   }
-  .btn-override:hover:not(:disabled) {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(224, 92, 92, 0.35);
-  }
-  .btn-override:active:not(:disabled) {
-    transform: translateY(0);
+  .btn-override-neutral:hover:not(:disabled) {
+    background: #f9fafb;
+    border-color: #d1d5db;
   }
 
+  /* ── Condition B: warm / conversational buttons ── */
+  .btn-accept-warm {
+    @apply flex-1 px-5 py-3 text-sm font-semibold text-white rounded-lg
+           transition-all duration-200 cursor-pointer
+           disabled:opacity-50 disabled:cursor-not-allowed;
+    background: #2563eb;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+  }
+  .btn-accept-warm:hover:not(:disabled) {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  }
+
+  .btn-override-warm {
+    @apply flex-1 px-5 py-3 text-sm font-medium rounded-lg
+           transition-all duration-200 cursor-pointer
+           disabled:opacity-50 disabled:cursor-not-allowed;
+    background: #ffffff;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+  }
+  .btn-override-warm:hover:not(:disabled) {
+    background: #f9fafb;
+    border-color: #d1d5db;
+  }
+
+  /* ── Generic buttons ── */
   .btn-primary {
     @apply px-6 py-3 text-base font-semibold text-white rounded-xl
-           transition-all duration-200 ease-out
-           disabled:opacity-50 disabled:cursor-not-allowed
-           cursor-pointer;
+           transition-all duration-200 ease-out cursor-pointer
+           disabled:opacity-50 disabled:cursor-not-allowed;
     background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
     box-shadow: 0 2px 10px rgba(79, 110, 247, 0.3);
   }
   .btn-primary:hover:not(:disabled) {
     transform: translateY(-1px);
     box-shadow: 0 4px 18px rgba(79, 110, 247, 0.4);
-  }
-  .btn-primary:active:not(:disabled) {
-    transform: translateY(0);
   }
 
   .stat-card {

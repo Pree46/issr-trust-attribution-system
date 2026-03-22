@@ -68,4 +68,9 @@ Desktop.ini
 /backend/data.json
 /backend/data.csv
 /backend/trust_scale.json
+/backend/interactions.json
+
+# Analysis outputs
+/analysis/*.png
+/analysis/.ipynb_checkpoints/
 

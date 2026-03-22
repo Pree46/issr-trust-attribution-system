@@ -1,12 +1,10 @@
-/**
- * Shared TypeScript interfaces for the trust attribution study.
- */
-
 export interface Condition {
   label: string;
   agent_name: string;
   tone: string;
   confidence_framing: string;
+  avatar_type: 'icon' | 'initials';
+  color_scheme: 'neutral' | 'warm';
   greeting: string;
   recommendation_prefix: string;
   confidence_display: string;
@@ -16,17 +14,31 @@ export interface Condition {
 
 export interface Task {
   task_id: string;
+  domain: string;
+  stakes: string;
   scenario: string;
   recommendation: string;
   ai_accuracy_rate: number;
 }
 
-export interface SessionData {
-  participant_id: string;
-  session_id: string;
+export interface TrustQuestion {
+  q_id: string;
+  text: string;
+  scale: string;
+}
+
+export interface Block {
   condition: string;
   condition_config: Condition;
   tasks: Task[];
+}
+
+export interface SessionData {
+  participant_id: string;
+  session_id: string;
+  conditions: Record<string, Condition>;
+  blocks: Block[];
+  trust_scale: TrustQuestion[];
 }
 
 export interface ConditionStats {

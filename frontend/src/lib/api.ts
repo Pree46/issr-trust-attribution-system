@@ -1,12 +1,7 @@
-/**
- * API client — all backend fetch calls in one place.
- */
-
 import { SessionData, ConditionStats } from '@/types';
 
 const BACKEND_URL = 'http://localhost:8000';
 
-/** Start a new experiment session. */
 export async function startSession(): Promise<SessionData> {
   const res = await fetch(`${BACKEND_URL}/session/start`, {
     method: 'POST',
@@ -17,7 +12,6 @@ export async function startSession(): Promise<SessionData> {
   return res.json();
 }
 
-/** Log a single task decision event. */
 export async function logEvent(payload: {
   participant_id: string;
   session_id: string;
@@ -35,7 +29,6 @@ export async function logEvent(payload: {
   if (!res.ok) throw new Error('Failed to log event');
 }
 
-/** Submit the post-session trust scale and close the session. */
 export async function endSession(payload: {
   participant_id: string;
   session_id: string;
@@ -52,7 +45,6 @@ export async function endSession(payload: {
   if (!res.ok) throw new Error('Failed to end session');
 }
 
-/** Fetch aggregate stats across all sessions. */
 export async function fetchStats(): Promise<Record<string, ConditionStats>> {
   const res = await fetch(`${BACKEND_URL}/stats`);
   if (!res.ok) throw new Error('Failed to fetch stats');

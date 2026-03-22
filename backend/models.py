@@ -7,12 +7,10 @@ from typing import Optional
 
 
 class SessionStart(BaseModel):
-    """Body for POST /session/start."""
     participant_id: Optional[str] = None
 
 
 class EventLog(BaseModel):
-    """Body for POST /event/log."""
     participant_id: str
     session_id: str
     condition: str
@@ -23,7 +21,6 @@ class EventLog(BaseModel):
 
 
 class TrustScale(BaseModel):
-    """Body for POST /session/end."""
     participant_id: str
     session_id: str
     condition: str

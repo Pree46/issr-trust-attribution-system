@@ -1,3 +1,6 @@
+"""
+Event logging route.
+"""
 
 import uuid
 from datetime import datetime, timezone
@@ -10,6 +13,15 @@ from storage import save_event
 
 router = APIRouter()
 
+TASKS_BY_ID = {}
+
+def _get_task(task_id: str) -> dict:
+    if not TASKS_BY_ID:
+        from config import TASKS
+        for t in TASKS:
+            TASKS_BY_ID[t["task_id"]] = t
+    return TASKS_BY_ID.get(task_id, {})
+
 
 @router.post("/event/log")
 def log_event(event: EventLog):
@@ -19,6 +31,8 @@ def log_event(event: EventLog):
         raise HTTPException(status_code=400, detail="Decision must be 'accept' or 'override'.")
 
     cond = CONDITIONS[event.condition]
+    task = _get_task(event.task_id)
+
     record = {
         "event_id":           str(uuid.uuid4()),
         "participant_id":     event.participant_id,
@@ -32,6 +46,8 @@ def log_event(event: EventLog):
         "agent_name":         cond["agent_name"],
         "tone":               cond["tone"],
         "confidence_framing": cond["confidence_framing"],
+        "task_domain":        task.get("domain", ""),
+        "task_stakes":        task.get("stakes", ""),
     }
 
     save_event(record)

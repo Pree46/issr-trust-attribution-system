@@ -1,51 +1,69 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Task, SessionData } from '@/types';
+import { Task, Condition } from '@/types';
 import { logEvent } from '@/lib/api';
 
 interface TaskCardProps {
   task: Task;
-  session: SessionData;
+  condition: string;
+  conditionConfig: Condition;
+  participantId: string;
+  sessionId: string;
   taskIndex: number;
   totalTasks: number;
   onComplete: (decision: 'accept' | 'override', latency_ms: number) => void;
 }
 
+function SystemAvatar() {
+  return (
+    <div className="w-10 h-10 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-400">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
+      </svg>
+    </div>
+  );
+}
+
+function HumanAvatar({ name }: { name: string }) {
+  const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+  return (
+    <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-bold">
+      {initials}
+    </div>
+  );
+}
+
 export default function TaskCard({
-  task,
-  session,
-  taskIndex,
-  totalTasks,
-  onComplete,
+  task, condition, conditionConfig, participantId, sessionId,
+  taskIndex, totalTasks, onComplete,
 }: TaskCardProps) {
   const stimulusTime = useRef<number | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const config = session.condition_config;
+  const [confidence, setConfidence] = useState(5);
 
-  // Record when the stimulus (recommendation) becomes visible
+  const config = conditionConfig;
+  const isNeutral = config.color_scheme === 'neutral';
+
   useEffect(() => {
     stimulusTime.current = performance.now();
   }, [task.task_id]);
-
-  const isHumanlike = session.condition === 'B';
-  const accentColor = isHumanlike ? 'var(--accent-purple)' : 'var(--accent-blue)';
 
   async function handleDecision(decision: 'accept' | 'override') {
     const latency_ms = Math.round(
       performance.now() - (stimulusTime.current ?? performance.now())
     );
-
     setSubmitting(true);
     try {
       await logEvent({
-        participant_id: session.participant_id,
-        session_id: session.session_id,
-        condition: session.condition,
+        participant_id: participantId,
+        session_id: sessionId,
+        condition,
         task_id: task.task_id,
         decision,
         latency_ms,
-        confidence_rating: null,
+        confidence_rating: confidence,
       });
       onComplete(decision, latency_ms);
     } catch (error) {
@@ -57,81 +75,95 @@ export default function TaskCard({
   }
 
   const progressPct = ((taskIndex + 1) / totalTasks) * 100;
+  const progressColor = isNeutral ? 'var(--cond-a-primary)' : 'var(--cond-b-primary)';
+
+  if (isNeutral) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-6">
+        <div className="max-w-2xl w-full animate-fade-in" key={task.task_id}>
+          <div className="card" style={{ background: 'var(--cond-a-bg)' }}>
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
+                <SystemAvatar />
+                <div>
+                  <h2 className="font-bold text-gray-900">{config.agent_name}</h2>
+                  <p className="text-xs text-gray-400">Decision support module v2.1</p>
+                </div>
+              </div>
+              <span className="text-sm font-medium text-gray-400">Task {taskIndex + 1} / {totalTasks}</span>
+            </div>
+            <div className="progress-track">
+              <div className="progress-fill" style={{ width: `${progressPct}%`, background: progressColor }} />
+            </div>
+          </div>
+
+          <div className="card mt-4">
+            <div className="border-l-3 border-gray-300 pl-4 mb-5">
+              <p className="text-gray-700 leading-relaxed">{task.scenario}</p>
+            </div>
+            <div className="rounded-lg border border-gray-200 p-4 mb-4" style={{ background: 'var(--cond-a-light)' }}>
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-2">System Recommendation</p>
+              <p className="text-gray-900 font-medium">{task.recommendation}</p>
+            </div>
+            <span className="inline-block text-xs font-medium px-3 py-1 rounded-full border border-gray-300 text-gray-600 bg-white mb-4">
+              Confidence: {config.confidence_display}
+            </span>
+            <div className="mb-2">
+              <label className="text-xs font-medium text-gray-500 block mb-1">
+                Your confidence in your decision: <span className="font-bold text-gray-700">{confidence}/10</span>
+              </label>
+              <input type="range" min="1" max="10" value={confidence} onChange={(e) => setConfidence(Number(e.target.value))} className="w-full accent-gray-500" />
+            </div>
+          </div>
+
+          <div className="flex gap-3 mt-4">
+            <button onClick={() => handleDecision('accept')} disabled={submitting} className="btn-accept-neutral">{config.button_accept}</button>
+            <button onClick={() => handleDecision('override')} disabled={submitting} className="btn-override-neutral">{config.button_override}</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
       <div className="max-w-2xl w-full animate-fade-in" key={task.task_id}>
-        {/* Header + Progress */}
-        <div className="card mb-0">
+        <div className="card">
           <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <span className="text-lg">{isHumanlike ? '🧑' : '🤖'}</span>
-              <h2 className="font-bold text-gray-900">{config.agent_name}</h2>
+            <div className="flex items-center gap-3">
+              <HumanAvatar name={config.agent_name} />
+              <div>
+                <h2 className="font-bold text-gray-900">{config.agent_name}</h2>
+                <p className="text-xs text-green-600">● Active now · AI assistant</p>
+              </div>
             </div>
-            <span className="text-sm font-medium text-gray-400">
-              Task {taskIndex + 1} / {totalTasks}
-            </span>
+            <span className="text-sm font-medium text-gray-400">Task {taskIndex + 1} / {totalTasks}</span>
           </div>
           <div className="progress-track">
-            <div
-              className="progress-fill"
-              style={{ width: `${progressPct}%`, background: accentColor }}
-            />
+            <div className="progress-fill" style={{ width: `${progressPct}%`, background: progressColor }} />
           </div>
         </div>
 
-        {/* Task Content */}
         <div className="card mt-4">
-          <p className="text-sm font-medium mb-4" style={{ color: accentColor }}>
-            {config.greeting}
-          </p>
-
-          <div className="mb-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">
-              Scenario
-            </p>
-            <p className="text-gray-700 leading-relaxed">{task.scenario}</p>
+          <div className="rounded-xl p-4 mb-4" style={{ background: 'var(--cond-b-bg)', border: '1px solid var(--cond-b-border)' }}>
+            <p className="text-gray-700">{config.greeting}</p>
           </div>
-
-          <div
-            className="rounded-xl p-4 mb-4"
-            style={{
-              background: `${accentColor}08`,
-              border: `1px solid ${accentColor}20`,
-            }}
-          >
-            <p className="text-sm text-gray-500 mb-1">
-              {config.recommendation_prefix}
-            </p>
-            <p className="text-lg font-semibold text-gray-900">
-              {task.recommendation}
-            </p>
+          <p className="text-sm text-gray-500 mb-2">{task.scenario}</p>
+          <div className="rounded-xl p-4 mb-4" style={{ background: 'var(--cond-b-bg)', border: '1px solid var(--cond-b-border)' }}>
+            <p className="text-gray-700 italic mb-2">&ldquo;{config.recommendation_prefix} {task.recommendation}&rdquo;</p>
           </div>
-
-          <p className="text-sm text-gray-500">
-            <span className="font-medium">AI Confidence:</span>{' '}
-            <span className="font-semibold text-gray-700">
-              {config.confidence_display}
-            </span>
-          </p>
+          <p className="text-sm font-medium mb-4" style={{ color: 'var(--cond-b-primary)' }}>{config.confidence_display}</p>
+          <div className="mb-2">
+            <label className="text-xs font-medium text-gray-500 block mb-1">
+              Your confidence in your decision: <span className="font-bold text-gray-700">{confidence}/10</span>
+            </label>
+            <input type="range" min="1" max="10" value={confidence} onChange={(e) => setConfidence(Number(e.target.value))} className="w-full accent-blue-600" />
+          </div>
         </div>
 
-        {/* Decision Buttons */}
         <div className="flex gap-3 mt-4">
-          <button
-            onClick={() => handleDecision('accept')}
-            disabled={submitting}
-            className="btn-accept"
-          >
-            {config.button_accept}
-          </button>
-          <button
-            onClick={() => handleDecision('override')}
-            disabled={submitting}
-            className="btn-override"
-          >
-            {config.button_override}
-          </button>
+          <button onClick={() => handleDecision('accept')} disabled={submitting} className="btn-accept-warm">{config.button_accept}</button>
+          <button onClick={() => handleDecision('override')} disabled={submitting} className="btn-override-warm">{config.button_override}</button>
         </div>
       </div>
     </div>
