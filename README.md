@@ -22,7 +22,10 @@ This platform provides reusable research infrastructure for human–AI trust, ca
 
 ### Within-Subjects Protocol
 
-Each participant completes **both** conditions in a single session. Block order is counterbalanced by participant hash to control for order effects. This design maximises statistical power with smaller samples and enables direct within-person comparison of behavioral vs. reported trust.
+Each participant completes **both** conditions in a single session.
+
+> Block order is counterbalanced by participant hash. Task order within each block is randomized per session, and task position (1, 2, or 3) is tracked in block_position to enable analysis of how trust and latency drift across the decision sequence.
+
 <p align="center">
   <img src="docs/screenshots/condition_a_system7.png" width="48%" alt="Condition A — System 7" />
   <img src="docs/screenshots/condition_b_alex.png" width="48%" alt="Condition B — Alex" />
@@ -82,6 +85,7 @@ This enables direct comparison of **behavioral trust** (reliance rate from decis
 | Condition-aware UI | Distinct visual identity per condition — avatar, color palette, button style, tone |
 | Confidence slider | Participant self-rates decision confidence (1–10) after each decision |
 | Trust scale | 3-item Likert questionnaire after each agent block |
+| Trust drift analysis | Track how reliance and latency change across task positions within each condition block (via `block_position` field) |
 | High-resolution latency | `performance.now()` captures stimulus-to-decision time in sub-millisecond resolution |
 | Dual export | All events downloadable as JSON and CSV via API |
 | Analysis notebook | Jupyter notebook with reliance rates, latency distributions, and behavioral vs. reported trust comparison |
@@ -108,7 +112,7 @@ Every decision is logged with the following schema and exported as both JSON and
 | `confidence_framing` | string | Confidence cue | `"overstated"` |
 | `task_domain` | string | Scenario domain | `"medical"` |
 | `task_stakes` | string | Stakes level | `"high"` |
-
+| `block_position` | integer | Task position within block (1, 2, or 3) | `2` |
 ### Latency Measurement
 
 `latency_ms` is measured in the frontend using the browser's `performance.now()` API:
@@ -224,12 +228,11 @@ pip install -r requirements.txt
 jupyter notebook trust_analysis.ipynb
 ```
 
-The notebook produces:
+The notebook produces (using sample_output.json synthetic data):
 - Reliance rate by condition
-- Override rate by condition
+- Override rate by condition (with trust drift by block position)
 - Mean response latency by condition
 - Behavioral trust vs. reported trust scale comparison
-- Breakdown by task domain and stakes level
 
 ---
 
@@ -265,7 +268,8 @@ The notebook produces:
     "tone": "formal",
     "confidence_framing": "calibrated",
     "task_domain": "medical",
-    "task_stakes": "high"
+    "task_stakes": "high",
+    "block_position": 2
 }
 ```
 
