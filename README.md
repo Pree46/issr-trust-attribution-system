@@ -2,8 +2,8 @@
 
 > A modular, open-source experimentation engine for studying **trust calibration** in AI-assisted decision systems — built for the HumanAI Foundation · University of Alabama ISSR.
 <p align="center">
-  <img src="https://humanai.foundation/images/humanai.jpg" alt="humanai"/>
-  <img src="https://humanai.foundation/images/GSoC/GSoC-icon-192.png" alt="gsoc"/>
+  <img src="https://humanai.foundation/images/humanai.jpg" alt="humanai" width="120" height="120"/>
+  <img src="https://humanai.foundation/images/GSoC/GSoC-icon-192.png" alt="gsoc" width="120" height="120"/>
 </p>
 
 ---
