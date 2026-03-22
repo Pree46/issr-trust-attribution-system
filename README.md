@@ -1,16 +1,9 @@
 # ISSR Trust Attribution System
 
 > A modular, open-source experimentation engine for studying **trust calibration** in AI-assisted decision systems — built for the HumanAI Foundation · University of Alabama ISSR.
-
 <p align="center">
-  <img src="docs/screenshots/condition_a_system7.png" width="48%" alt="Condition A — System 7" />
-  <img src="docs/screenshots/condition_b_alex.png" width="48%" alt="Condition B — Alex" />
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/python-3.9+-green" alt="python"/>
-  <img src="https://img.shields.io/badge/license-MIT-lightgrey" alt="license"/>
-  <img src="https://img.shields.io/badge/GSoC-2026-red" alt="gsoc"/>
+  <img src="https://humanai.foundation/images/humanai.jpg" alt="humanai"/>
+  <img src="https://humanai.foundation/images/GSoC/GSoC-icon-192.png" alt="gsoc"/>
 </p>
 
 ---
@@ -30,6 +23,10 @@ This platform provides reusable research infrastructure for human–AI trust, ca
 ### Within-Subjects Protocol
 
 Each participant completes **both** conditions in a single session. Block order is counterbalanced by participant hash to control for order effects. This design maximises statistical power with smaller samples and enables direct within-person comparison of behavioral vs. reported trust.
+<p align="center">
+  <img src="docs/screenshots/condition_a_system7.png" width="48%" alt="Condition A — System 7" />
+  <img src="docs/screenshots/condition_b_alex.png" width="48%" alt="Condition B — Alex" />
+</p>
 
 ```
 Consent → Welcome → Block 1 (3 tasks) → Trust Scale → Block 2 (3 tasks) → Trust Scale → Stats
@@ -321,7 +318,3 @@ The platform is designed for reuse: any researcher can fork this repository, mod
 | Latency | `performance.now()` browser API |
 
 ---
-
-## License
-
-MIT
