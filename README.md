@@ -45,7 +45,7 @@ The experiment systematically manipulates four interface cues that signal humanl
 | **Color palette** | Grey / neutral | Blue / warm |
 | **Accept button** | "Confirm Recommendation" | "Sounds good, go with it" |
 
-Conditions are data-driven and defined entirely in [`backend/config.py`](backend/config.py). Adding a new cue dimension requires only a new key in the `CONDITIONS` dict — no route logic changes needed.
+Conditions are data-driven and defined entirely in [`backend/config.py`](backend/config.py). 
 
 ### Decision Tasks — 6 Scenarios
 
@@ -159,6 +159,7 @@ issr-trust-attribution-system/
 │   └── screenshots/
 │       ├── condition_a_system7.png
 │       ├── condition_b_alex.png
+|       ├── consent.png
 │       └── trust_scale.png
 └── README.md
 ```
@@ -313,7 +314,7 @@ The platform is designed for reuse: any researcher can fork this repository, mod
 |-------|-----------|
 | Frontend | Next.js 16, React 19, TypeScript, Tailwind CSS 4 |
 | Backend | Python, FastAPI, Pydantic v2 |
-| Data storage | Flat-file JSON + CSV (no database required) |
+| Data storage | Flat-file JSON + CSV|
 | Analysis | Jupyter, pandas, matplotlib, scipy |
 | Latency | `performance.now()` browser API |
 
