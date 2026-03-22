@@ -64,6 +64,7 @@ export default function TaskCard({
         decision,
         latency_ms,
         confidence_rating: confidence,
+        block_position: task.block_position,
       });
       onComplete(decision, latency_ms);
     } catch (error) {

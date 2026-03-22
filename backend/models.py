@@ -18,6 +18,7 @@ class EventLog(BaseModel):
     decision: str
     latency_ms: int
     confidence_rating: Optional[int] = None
+    block_position: Optional[int] = None
 
 
 class TrustScale(BaseModel):

@@ -33,6 +33,13 @@ def start_session(body: SessionStart):
     shuffle(shuffled)
     midpoint = len(shuffled) // 2
 
+    def annotate_with_position(task_list):
+        """Add block_position (1, 2, 3) to each task."""
+        return [
+            {**task, "block_position": i + 1}
+            for i, task in enumerate(task_list)
+        ]
+
     return {
         "participant_id": participant_id,
         "session_id": session_id,
@@ -44,12 +51,12 @@ def start_session(body: SessionStart):
             {
                 "condition": first_cond,
                 "condition_config": CONDITIONS[first_cond],
-                "tasks": shuffled[:midpoint],
+                "tasks": annotate_with_position(shuffled[:midpoint]),
             },
             {
                 "condition": second_cond,
                 "condition_config": CONDITIONS[second_cond],
-                "tasks": shuffled[midpoint:],
+                "tasks": annotate_with_position(shuffled[midpoint:]),
             },
         ],
         "trust_scale": TRUST_SCALE,

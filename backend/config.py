@@ -1,25 +1,9 @@
-"""
-Experiment configuration constants.
-
-CONDITIONS  – the two experimental arms (neutral vs. humanlike).
-TASKS       – the decision-making scenarios shown to participants.
-CSV_FIELDS  – column order for the flat CSV export.
-TRUST_SCALE – post-task trust questionnaire items.
-
-Design notes:
-- Tasks span 3 domains (professional, consumer, everyday) and 2 stakes levels
-  (high / low) so cue effects can be measured across contexts, not just one domain.
-- ai_accuracy_rate controls the ground-truth correct rate used in analysis;
-  it is NOT shown to participants — it is used post-hoc to compute calibration.
-- Tasks are always presented in a fixed randomised order per session
-  (shuffled once in /session/start) so order effects are distributed evenly.
-"""
 
 CSV_FIELDS = [
     "event_id", "participant_id", "session_id", "condition",
     "task_id", "decision", "timestamp", "latency_ms",
     "confidence_rating", "agent_name", "tone", "confidence_framing",
-    "task_domain", "task_stakes",
+    "task_domain", "task_stakes", "block_position",
 ]
 
 CONDITIONS = {

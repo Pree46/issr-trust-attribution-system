@@ -19,6 +19,7 @@ export interface Task {
   scenario: string;
   recommendation: string;
   ai_accuracy_rate: number;
+  block_position?: number;
 }
 
 export interface TrustQuestion {

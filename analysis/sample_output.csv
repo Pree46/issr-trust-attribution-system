@@ -1,49 +1,49 @@
-event_id,participant_id,session_id,condition,task_id,decision,timestamp,latency_ms,confidence_rating,agent_name,tone,confidence_framing,task_domain,task_stakes
-03b2108f-940b-469b-941c-a28ede8a666f,p001,fccf7d7c-731,A,t5,accept,2026-03-15T09:00:41.000000+00:00Z,3642,8,System 7,formal,calibrated,consumer,low
-c060cc9a-721c-4dba-a762-d4dbc6e412b3,p001,fccf7d7c-731,A,t1,override,2026-03-15T09:01:23.000000+00:00Z,5216,6,System 7,formal,calibrated,medical,high
-47149b11-8119-4a73-becb-6973b0983d4d,p001,fccf7d7c-731,A,t3,override,2026-03-15T09:03:05.000000+00:00Z,3855,6,System 7,formal,calibrated,hiring,high
-f1603096-677a-4063-a624-f6de7bd3cf92,p001,fccf7d7c-731,B,t2,accept,2026-03-15T09:06:00.000000+00:00Z,2852,7,Alex,conversational,overstated,finance,high
-b745f9d1-43eb-4814-93e1-535e050fd24f,p001,fccf7d7c-731,B,t6,accept,2026-03-15T09:06:54.000000+00:00Z,1845,6,Alex,conversational,overstated,everyday,low
-70efe4d2-f8c1-44e3-87a3-5842d9842ef5,p001,fccf7d7c-731,B,t4,accept,2026-03-15T09:08:11.000000+00:00Z,1659,9,Alex,conversational,overstated,consumer,low
-4e4b483e-de1c-4c6e-9b7b-9bce716a966f,p002,1a4d2c52-6e6,B,t5,accept,2026-03-15T09:12:13.000000+00:00Z,2438,9,Alex,conversational,overstated,consumer,low
-faea48c3-f129-464b-af3b-449c1126c093,p002,1a4d2c52-6e6,B,t6,accept,2026-03-15T09:13:56.000000+00:00Z,2021,6,Alex,conversational,overstated,everyday,low
-893034be-e436-4b4a-b109-460df4d6a352,p002,1a4d2c52-6e6,B,t2,accept,2026-03-15T09:15:15.000000+00:00Z,3174,6,Alex,conversational,overstated,finance,high
-15dfc3a7-5f68-42ca-b4c2-b5d226d5fe93,p002,1a4d2c52-6e6,A,t3,override,2026-03-15T09:17:19.000000+00:00Z,5066,6,System 7,formal,calibrated,hiring,high
-5ba1c134-2935-4408-8c50-ced4b9113760,p002,1a4d2c52-6e6,A,t4,override,2026-03-15T09:18:28.000000+00:00Z,3275,2,System 7,formal,calibrated,consumer,low
-1e996a88-830b-4df6-b5b0-1c308d689379,p002,1a4d2c52-6e6,A,t1,override,2026-03-15T09:19:33.000000+00:00Z,4667,5,System 7,formal,calibrated,medical,high
-936bde91-a593-4dd1-9b6d-cc0eb6fb7a8a,p003,d225afc6-6c5,A,t3,accept,2026-03-15T09:24:48.000000+00:00Z,5570,5,System 7,formal,calibrated,hiring,high
-894fc1fc-94ea-4efa-9d98-cd48ce1deee8,p003,d225afc6-6c5,A,t5,accept,2026-03-15T09:25:52.000000+00:00Z,4052,7,System 7,formal,calibrated,consumer,low
-dc91e02f-2780-44ec-a91b-f8ba1d23029d,p003,d225afc6-6c5,A,t6,accept,2026-03-15T09:26:31.000000+00:00Z,3468,8,System 7,formal,calibrated,everyday,low
-27265428-ac36-4f19-9fb3-e152a2cbda37,p003,d225afc6-6c5,B,t2,accept,2026-03-15T09:29:57.000000+00:00Z,2101,9,Alex,conversational,overstated,finance,high
-a722f710-cc27-442b-ac25-80fa496cb4b1,p003,d225afc6-6c5,B,t1,accept,2026-03-15T09:30:25.000000+00:00Z,2201,5,Alex,conversational,overstated,medical,high
-cc5e7813-90fb-4259-92f1-d8b8dccd2adb,p003,d225afc6-6c5,B,t4,accept,2026-03-15T09:31:39.000000+00:00Z,1581,6,Alex,conversational,overstated,consumer,low
-3254ee1e-110a-4e34-a3cf-34d89a358c8c,p004,3f7cdd55-107,B,t1,accept,2026-03-15T09:37:00.000000+00:00Z,3230,5,Alex,conversational,overstated,medical,high
-1685512c-4d9e-42e0-aa19-d84fca852faf,p004,3f7cdd55-107,B,t6,accept,2026-03-15T09:37:50.000000+00:00Z,799,5,Alex,conversational,overstated,everyday,low
-79a1801c-4172-4aa1-99d3-3afa3a164734,p004,3f7cdd55-107,B,t3,accept,2026-03-15T09:38:52.000000+00:00Z,2598,6,Alex,conversational,overstated,hiring,high
-9d07b58b-8afa-4f87-bbda-a2be58099b93,p004,3f7cdd55-107,A,t5,accept,2026-03-15T09:41:32.000000+00:00Z,3263,8,System 7,formal,calibrated,consumer,low
-2b95bf7c-309c-45ac-aa38-4b65fd02f662,p004,3f7cdd55-107,A,t2,override,2026-03-15T09:42:41.000000+00:00Z,4596,2,System 7,formal,calibrated,finance,high
-be28a69c-d95e-4546-9542-3fc01f8442bd,p004,3f7cdd55-107,A,t4,override,2026-03-15T09:44:17.000000+00:00Z,3671,5,System 7,formal,calibrated,consumer,low
-216c76c1-16e8-4a46-b919-d724af5b213a,p005,b3fccd29-63e,A,t5,override,2026-03-15T09:48:21.000000+00:00Z,2756,4,System 7,formal,calibrated,consumer,low
-7d8d2164-ffc5-43fa-b28a-3acb4108d4fd,p005,b3fccd29-63e,A,t1,override,2026-03-15T09:49:42.000000+00:00Z,6790,3,System 7,formal,calibrated,medical,high
-edddc621-d812-4028-9dd1-70e3ff9f765a,p005,b3fccd29-63e,A,t6,accept,2026-03-15T09:50:54.000000+00:00Z,3403,8,System 7,formal,calibrated,everyday,low
-449a69f2-8f87-4004-9ba0-259c664cd5f5,p005,b3fccd29-63e,B,t3,override,2026-03-15T09:53:12.000000+00:00Z,2493,4,Alex,conversational,overstated,hiring,high
-1c172db6-7025-4a7a-9ba9-ec91270e86e8,p005,b3fccd29-63e,B,t2,accept,2026-03-15T09:54:52.000000+00:00Z,4075,8,Alex,conversational,overstated,finance,high
-e3fa009b-792a-4656-ac90-084e7351543a,p005,b3fccd29-63e,B,t4,accept,2026-03-15T09:55:55.000000+00:00Z,1270,7,Alex,conversational,overstated,consumer,low
-fddecc7e-647a-4ea6-9135-87c2d2461479,p006,6a72f331-365,B,t1,accept,2026-03-15T10:00:20.000000+00:00Z,1042,8,Alex,conversational,overstated,medical,high
-d560f2f2-e467-46b3-81b9-29f1fdcf4057,p006,6a72f331-365,B,t6,accept,2026-03-15T10:01:40.000000+00:00Z,829,6,Alex,conversational,overstated,everyday,low
-5b7efdef-940d-4356-9060-08c9d6d07dc7,p006,6a72f331-365,B,t5,accept,2026-03-15T10:03:10.000000+00:00Z,1665,6,Alex,conversational,overstated,consumer,low
-a1ad4e20-9cda-435e-89fa-f3de456e3463,p006,6a72f331-365,A,t2,override,2026-03-15T10:05:50.000000+00:00Z,5560,4,System 7,formal,calibrated,finance,high
-c3a4e554-7695-4d8f-b16f-27a54cc7ac4a,p006,6a72f331-365,A,t4,accept,2026-03-15T10:06:40.000000+00:00Z,3422,8,System 7,formal,calibrated,consumer,low
-7baa68bd-dfc6-4967-979e-8bdd83448ee9,p006,6a72f331-365,A,t3,override,2026-03-15T10:07:35.000000+00:00Z,3334,2,System 7,formal,calibrated,hiring,high
-f842b944-b25d-4488-abd1-984c2b920234,p007,fe2ff150-b28,A,t3,override,2026-03-15T10:12:58.000000+00:00Z,7921,6,System 7,formal,calibrated,hiring,high
-4743bed0-3bc6-4b26-ba1d-0bba4a35dc70,p007,fe2ff150-b28,A,t4,override,2026-03-15T10:13:34.000000+00:00Z,3047,3,System 7,formal,calibrated,consumer,low
-eb77a3c2-c74c-425d-a873-bb68bdb55367,p007,fe2ff150-b28,A,t1,override,2026-03-15T10:15:08.000000+00:00Z,4821,6,System 7,formal,calibrated,medical,high
-58052329-4e28-41f7-b0cc-dba808869d00,p007,fe2ff150-b28,B,t2,accept,2026-03-15T10:17:57.000000+00:00Z,1959,9,Alex,conversational,overstated,finance,high
-c146e4ed-813c-4bdf-95fb-69d3e985f8e7,p007,fe2ff150-b28,B,t6,accept,2026-03-15T10:18:22.000000+00:00Z,1827,7,Alex,conversational,overstated,everyday,low
-beed2647-269f-4244-a789-b9c5502b8da8,p007,fe2ff150-b28,B,t5,accept,2026-03-15T10:19:54.000000+00:00Z,350,5,Alex,conversational,overstated,consumer,low
-d921b17e-e227-4f4b-9f69-2efc50001620,p008,02481569-633,B,t2,override,2026-03-15T10:24:24.000000+00:00Z,3004,3,Alex,conversational,overstated,finance,high
-eaddb760-6016-4587-afcb-e7f370f65822,p008,02481569-633,B,t4,accept,2026-03-15T10:25:26.000000+00:00Z,1369,6,Alex,conversational,overstated,consumer,low
-dd968a92-06fa-4d44-a1a9-d75bbe88b174,p008,02481569-633,B,t1,override,2026-03-15T10:26:54.000000+00:00Z,3579,5,Alex,conversational,overstated,medical,high
-def42e5b-9a35-4554-94ff-74fc710fe535,p008,02481569-633,A,t5,override,2026-03-15T10:29:31.000000+00:00Z,2433,3,System 7,formal,calibrated,consumer,low
-fccc3d56-8e07-48fa-9a37-72a0912b04db,p008,02481569-633,A,t6,accept,2026-03-15T10:30:29.000000+00:00Z,3236,8,System 7,formal,calibrated,everyday,low
-c845e4b6-49fd-4238-ab9f-c4127eb974de,p008,02481569-633,A,t3,override,2026-03-15T10:32:04.000000+00:00Z,6189,5,System 7,formal,calibrated,hiring,high
+event_id,participant_id,session_id,condition,task_id,decision,timestamp,latency_ms,confidence_rating,agent_name,tone,confidence_framing,task_domain,task_stakes,block_position
+f7f11c69-4e54-4d99-be65-2702b0497e8a,p001,8726e8eb-680,A,t5,accept,2026-03-15T09:01:51.000000+00:00Z,3642,8,System 7,formal,calibrated,consumer,low,1
+17718249-ae67-4964-8b61-b5bbffbccf17,p001,8726e8eb-680,A,t1,override,2026-03-15T09:02:33.000000+00:00Z,5216,6,System 7,formal,calibrated,medical,high,2
+acf83ee9-f1af-4543-9be2-56773d432312,p001,8726e8eb-680,A,t3,override,2026-03-15T09:04:15.000000+00:00Z,3855,6,System 7,formal,calibrated,hiring,high,3
+0537a1c0-c3a0-4319-ade8-8cb71cd8e0b4,p001,8726e8eb-680,B,t2,accept,2026-03-15T09:06:42.000000+00:00Z,2852,7,Alex,conversational,overstated,finance,high,1
+3fa368e3-00a8-4d7e-a646-44f627560696,p001,8726e8eb-680,B,t6,accept,2026-03-15T09:08:04.000000+00:00Z,2018,6,Alex,conversational,overstated,everyday,low,2
+b0aab2c4-46ac-4567-a1d0-1126e36c7663,p001,8726e8eb-680,B,t4,accept,2026-03-15T09:08:43.000000+00:00Z,2403,9,Alex,conversational,overstated,consumer,low,3
+2b8c3f03-1550-4e44-9cba-cf07d369c373,p002,0eee0e06-30e,A,t5,override,2026-03-15T09:13:23.000000+00:00Z,2680,6,System 7,formal,calibrated,consumer,low,1
+aeac90ef-ddbb-45ef-861c-60f9bc7c9102,p002,0eee0e06-30e,A,t2,override,2026-03-15T09:15:06.000000+00:00Z,5329,3,System 7,formal,calibrated,finance,high,2
+fa22c34d-5455-487c-a3a2-4f1ee1e0dc38,p002,0eee0e06-30e,A,t1,override,2026-03-15T09:16:06.000000+00:00Z,5398,3,System 7,formal,calibrated,medical,high,3
+cd1dd201-5e3b-4795-9ca4-0e54652d09ca,p002,0eee0e06-30e,B,t6,accept,2026-03-15T09:18:50.000000+00:00Z,2108,6,Alex,conversational,overstated,everyday,low,1
+4d206021-a4db-4ad3-ae55-4b8740a4b8c8,p002,0eee0e06-30e,B,t3,accept,2026-03-15T09:19:54.000000+00:00Z,2808,8,Alex,conversational,overstated,hiring,high,2
+2725c546-48ed-4ab2-ad73-8fcdd710993d,p002,0eee0e06-30e,B,t4,accept,2026-03-15T09:21:18.000000+00:00Z,1732,8,Alex,conversational,overstated,consumer,low,3
+bef4240c-5cc7-4a59-921a-5029926d0414,p003,f3665c93-a2c,B,t5,accept,2026-03-15T09:25:58.000000+00:00Z,2435,5,Alex,conversational,overstated,consumer,low,1
+c0599b83-39ac-4a22-bad0-dae263663223,p003,f3665c93-a2c,B,t6,accept,2026-03-15T09:27:02.000000+00:00Z,2349,7,Alex,conversational,overstated,everyday,low,2
+7e7fe5a0-53bf-44f9-8d72-2d82f9708da5,p003,f3665c93-a2c,B,t4,accept,2026-03-15T09:27:41.000000+00:00Z,1752,8,Alex,conversational,overstated,consumer,low,3
+82bf01f0-e42a-49e6-ad77-ee27248180e0,p003,f3665c93-a2c,A,t3,accept,2026-03-15T09:30:27.000000+00:00Z,3968,9,System 7,formal,calibrated,hiring,high,1
+25eb1c9c-a88f-4163-afe5-e135dad5b030,p003,f3665c93-a2c,A,t2,override,2026-03-15T09:31:46.000000+00:00Z,4522,3,System 7,formal,calibrated,finance,high,2
+dfaa1f2b-4a71-48b6-9501-f4e4c895e8f3,p003,f3665c93-a2c,A,t1,accept,2026-03-15T09:33:04.000000+00:00Z,5145,6,System 7,formal,calibrated,medical,high,3
+42a5d28a-c09a-4e5a-bded-2a4165d62608,p004,db99e414-b12,A,t4,override,2026-03-15T09:37:22.000000+00:00Z,4570,3,System 7,formal,calibrated,consumer,low,1
+06c618a6-7c6b-47eb-9dad-a7fd952a60ca,p004,db99e414-b12,A,t1,override,2026-03-15T09:39:05.000000+00:00Z,6148,2,System 7,formal,calibrated,medical,high,2
+2eaf7df6-3e48-4633-972f-a61e2f341df1,p004,db99e414-b12,A,t5,override,2026-03-15T09:40:03.000000+00:00Z,2968,4,System 7,formal,calibrated,consumer,low,3
+fed33a05-4db0-4aba-a9f3-592e1a8a0e63,p004,db99e414-b12,B,t3,accept,2026-03-15T09:42:52.000000+00:00Z,3422,7,Alex,conversational,overstated,hiring,high,1
+8bcffc49-419e-4e65-9acd-d9fd1ec2944b,p004,db99e414-b12,B,t6,accept,2026-03-15T09:43:56.000000+00:00Z,2920,8,Alex,conversational,overstated,everyday,low,2
+f489d1d8-933c-465b-9029-b058ec5ad7e7,p004,db99e414-b12,B,t2,accept,2026-03-15T09:45:19.000000+00:00Z,1333,6,Alex,conversational,overstated,finance,high,3
+4e844426-82b7-482d-a05e-c2b150531a79,p005,1cb106fd-d1e,B,t4,accept,2026-03-15T09:49:42.000000+00:00Z,2354,6,Alex,conversational,overstated,consumer,low,1
+8ee6111d-cdb7-4535-a332-8931859384d9,p005,1cb106fd-d1e,B,t2,accept,2026-03-15T09:50:56.000000+00:00Z,1603,5,Alex,conversational,overstated,finance,high,2
+0a0ac04d-4ba7-4846-b5bb-7269f26df875,p005,1cb106fd-d1e,B,t5,accept,2026-03-15T09:51:58.000000+00:00Z,1906,7,Alex,conversational,overstated,consumer,low,3
+a1bda95c-8243-4f7a-be51-59e976b0a493,p005,1cb106fd-d1e,A,t1,override,2026-03-15T09:54:26.000000+00:00Z,4691,6,System 7,formal,calibrated,medical,high,1
+6ed7d037-5cd2-4a50-af19-fb305f3f22db,p005,1cb106fd-d1e,A,t3,override,2026-03-15T09:56:10.000000+00:00Z,4811,5,System 7,formal,calibrated,hiring,high,2
+d44dd8d9-7e8b-4dc8-91ed-085b3dcd644f,p005,1cb106fd-d1e,A,t6,override,2026-03-15T09:56:56.000000+00:00Z,5154,3,System 7,formal,calibrated,everyday,low,3
+7f727476-0daa-4687-aaa6-2761fbef1d39,p006,bb23cdfc-baf,A,t3,accept,2026-03-15T10:01:36.000000+00:00Z,4930,7,System 7,formal,calibrated,hiring,high,1
+8f50830d-1eed-48db-ac81-c3704daabdba,p006,bb23cdfc-baf,A,t2,override,2026-03-15T10:03:10.000000+00:00Z,4987,3,System 7,formal,calibrated,finance,high,2
+49808b10-b942-4521-9c7b-368c4a7e2ac0,p006,bb23cdfc-baf,A,t1,override,2026-03-15T10:03:52.000000+00:00Z,5091,5,System 7,formal,calibrated,medical,high,3
+d9102148-91ea-42be-b4bb-f203cff2045d,p006,bb23cdfc-baf,B,t6,accept,2026-03-15T10:07:00.000000+00:00Z,1509,7,Alex,conversational,overstated,everyday,low,1
+8fd9eaaf-768b-4768-a226-78171e6464df,p006,bb23cdfc-baf,B,t5,accept,2026-03-15T10:08:01.000000+00:00Z,2459,5,Alex,conversational,overstated,consumer,low,2
+8f704f35-51e7-41f4-9ec1-b5ed4ad67087,p006,bb23cdfc-baf,B,t4,accept,2026-03-15T10:09:10.000000+00:00Z,2219,6,Alex,conversational,overstated,consumer,low,3
+c1c79849-9a96-433a-bb6c-af7620369b80,p007,0c975599-9f7,A,t1,override,2026-03-15T10:13:36.000000+00:00Z,3535,6,System 7,formal,calibrated,medical,high,1
+bb239b6f-16c9-42fb-b071-fe4c11289fd6,p007,0c975599-9f7,A,t5,accept,2026-03-15T10:14:34.000000+00:00Z,3170,5,System 7,formal,calibrated,consumer,low,2
+acdab75c-f1dc-4e29-a28e-20e0cfca50ee,p007,0c975599-9f7,A,t6,override,2026-03-15T10:16:04.000000+00:00Z,3592,2,System 7,formal,calibrated,everyday,low,3
+c1c307fc-29aa-42d5-a312-d332aa6806cf,p007,0c975599-9f7,B,t3,accept,2026-03-15T10:18:58.000000+00:00Z,2887,9,Alex,conversational,overstated,hiring,high,1
+09388cef-ffc7-4a64-8ec8-f354fd8f86fb,p007,0c975599-9f7,B,t2,override,2026-03-15T10:19:53.000000+00:00Z,2116,2,Alex,conversational,overstated,finance,high,2
+062550bd-a4ee-4d39-a014-16c24b3c3295,p007,0c975599-9f7,B,t4,accept,2026-03-15T10:20:54.000000+00:00Z,1414,6,Alex,conversational,overstated,consumer,low,3
+a1fb3137-d234-46a6-8f05-a63821f31cb6,p008,7914a4f1-c21,A,t5,override,2026-03-15T10:25:29.000000+00:00Z,3112,6,System 7,formal,calibrated,consumer,low,1
+d2372703-8796-448c-942c-5296199e4f29,p008,7914a4f1-c21,A,t6,accept,2026-03-15T10:26:45.000000+00:00Z,2606,6,System 7,formal,calibrated,everyday,low,2
+09437a15-b4a0-4546-b5c3-91787faf5623,p008,7914a4f1-c21,A,t1,override,2026-03-15T10:28:08.000000+00:00Z,5766,3,System 7,formal,calibrated,medical,high,3
+123a0117-2d80-4174-bdb2-af793fc92f8f,p008,7914a4f1-c21,B,t2,accept,2026-03-15T10:31:00.000000+00:00Z,1835,8,Alex,conversational,overstated,finance,high,1
+a6e89ea7-878c-4a07-a1ff-ff6dc82aaa60,p008,7914a4f1-c21,B,t3,accept,2026-03-15T10:32:01.000000+00:00Z,3144,8,Alex,conversational,overstated,hiring,high,2
+ebad9f13-4124-4eaf-bfd6-5c52f708b89e,p008,7914a4f1-c21,B,t4,accept,2026-03-15T10:33:09.000000+00:00Z,1917,7,Alex,conversational,overstated,consumer,low,3

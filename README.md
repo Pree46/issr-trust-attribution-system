@@ -152,7 +152,7 @@ issr-trust-attribution-system/
 │           └── index.ts          # Shared TypeScript interfaces
 ├── analysis/
 │   ├── trust_analysis.ipynb      # Reliance rates, latency, trust scale charts
-│   ├── sample_output.json        # 60-event synthetic dataset
+│   ├── sample_output.json        # 48-event synthetic dataset
 │   ├── sample_output.csv
 │   └── requirements.txt
 ├── docs/
