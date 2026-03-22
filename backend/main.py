@@ -1,9 +1,3 @@
-"""
-ISSR Trust Attribution System — FastAPI entry point.
-
-All route handlers live in the `routes/` package.
-Configuration, models, and storage are in their own modules.
-"""
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -26,7 +20,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── Register routers ─────────────────────────────────────────────
+
 app.include_router(session_router)
 app.include_router(events_router)
 app.include_router(export_router)

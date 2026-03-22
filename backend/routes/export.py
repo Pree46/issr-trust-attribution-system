@@ -1,6 +1,3 @@
-"""
-Data export and statistics routes.
-"""
 
 import os
 

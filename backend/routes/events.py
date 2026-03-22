@@ -1,6 +1,3 @@
-"""
-Event logging route.
-"""
 
 import uuid
 from datetime import datetime, timezone
