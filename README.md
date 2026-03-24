@@ -172,7 +172,7 @@ issr-trust-attribution-system/
 
 ## How to Run Locally
 
-### Option A: Quick Start with Docker (Recommended)
+### Option A: With Docker
 
 **Prerequisites:** [Docker](https://docs.docker.com/get-docker/) installed.
 
