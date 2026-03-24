@@ -12,8 +12,6 @@ interface TaskCardProps {
   sessionId: string;
   taskIndex: number;
   totalTasks: number;
-  task_domain: string;
-  task_stakes: string;
   onComplete: (decision: 'accept' | 'override', latency_ms: number) => void;
 }
 

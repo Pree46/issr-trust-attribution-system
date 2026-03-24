@@ -172,33 +172,49 @@ issr-trust-attribution-system/
 
 ## How to Run Locally
 
-### Prerequisites
-- Node.js v18+
-- Python v3.9+
+### Option A: Quick Start with Docker (Recommended)
 
-### 1. Clone the repository
+**Prerequisites:** [Docker](https://docs.docker.com/get-docker/) installed.
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Pree46/issr-trust-attribution-system.git
+cd issr-trust-attribution-system
+
+# 2. Build and start the containers
+docker compose up --build
+```
+- **Frontend (Experiment UI):** `http://localhost:3000`
+- **Backend API:** `http://localhost:8000`
+*(To stop, press `Ctrl+C` or run `docker compose down`)*
+
+---
+
+### Option B: Manual Setup
+
+**Prerequisites:** Node.js v18+ and Python v3.9+
+
+**1. Clone the repository**
 ```bash
 git clone https://github.com/Pree46/issr-trust-attribution-system.git
 cd issr-trust-attribution-system
 ```
 
-### 2. Start the backend
+**2. Start the backend**
 ```bash
 cd backend
 pip install -r requirements.txt
 python -m uvicorn main:app --reload
 ```
 
-Backend: `http://localhost:8000` · API docs: `http://localhost:8000/docs`
-
-### 3. Start the frontend
+**3. Start the frontend**
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Frontend: `http://localhost:3000`
+---
 
 ### 4. Participate in the experiment
 1. Open `http://localhost:3000`
